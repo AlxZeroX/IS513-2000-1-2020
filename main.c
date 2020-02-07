@@ -1,7 +1,6 @@
 #include<stdio.h>
 #include<string.h>
 
-
 int main(){
 char cadena[100];
 int indice,l,contador=0,leyoletras=0;
