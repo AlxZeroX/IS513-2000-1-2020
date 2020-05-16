@@ -19,8 +19,17 @@
 
 <operadores_desigualdad>::=  >| < | >= | <=
 
-<operador_comporacion>::= ===|equals |<operadores_desigualdad>
+<operador_comparacion>::= ===|equals |<operadores_desigualdad>
 
-<condicion>::= (<identificador>|<numero>)<operador_comparacion>(<identificador>|<numero>) 
+<asignacion>::=  <identificador><operador_asignacio><constante>
+
+<constante>::=	<numero>|<cadena>|<identificador>
+
+<propocion_primitiva>::=	<constante><operador_comparacion><constante>
+
+<condicion>::= <propocicion_primitiva>
+			  |<propocicion_primitiva><operadores_logicos><condicion>
+<bloque_instruccion>::= <asignacion>
+						|<seleccion_simple>			  
 
 <seleccion_simple>::= if"("<condicion>")" "{"<>"}" 
