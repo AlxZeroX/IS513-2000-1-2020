@@ -31,4 +31,9 @@
 			  |<propocicion_primitiva><operadores_logicos><condicion>
 
 <bloque_instruccion>::= <asignacion>
-						|<seleccion_simple>			   
+						|<seleccion_simple>
+						|<seleccion_doble>
+						|<seleccion_multiple>
+						|<do_while>
+						|<while>
+						|<for>			   
