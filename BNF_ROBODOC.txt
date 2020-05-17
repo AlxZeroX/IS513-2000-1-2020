@@ -37,10 +37,20 @@
 						|<do_while>
 						|<while>
 						|<for>
+
 <seleccion_simple>::= if(<condicion>) {<bloque_instruccion>}
 
 <seleccion_doble>::=  if(<condicion>)<bloque_instruccion> else {<bloque_instruccion>}
 
 <do_while>::= do{<bloque_instruccion>}while(<condicion>){<bloque_instruccion>}
 
-<while>::= while(<condicion>){<bloque_instrucion>}			   
+<while>::= while(<condicion>){<bloque_instrucion>}
+
+<for>::= for(<asignacion>,<condicion>,<asignacion>){<bloque_instruccion>}
+
+<definicion_funcion>::= def <identificador>
+
+<lista_parametros>::= <constante>|<constate>,<cosntante>
+
+<funcion>::= <definicion_funcion>(<lista_parametros>){<bloque_instruccion>}	
+		   
