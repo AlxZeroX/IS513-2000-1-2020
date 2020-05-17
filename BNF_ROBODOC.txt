@@ -25,11 +25,10 @@
 
 <constante>::=	<numero>|<cadena>|<identificador>
 
-<propocion_primitiva>::=	<constante><operador_comparacion><constante>
+<propocion_primitiva>::= <constante><operador_comparacion><constante>
 
 <condicion>::= <propocicion_primitiva>
 			  |<propocicion_primitiva><operadores_logicos><condicion>
-<bloque_instruccion>::= <asignacion>
-						|<seleccion_simple>			  
 
-<seleccion_simple>::= if"("<condicion>")" "{"<>"}" 
+<bloque_instruccion>::= <asignacion>
+						|<seleccion_simple>			   
