@@ -1,4 +1,4 @@
-<lenguaje>::= 
+<lenguaje>::= ENCENDER {<bloque_instruccion>}* APAGAR
 
 <letra>::= a|b|c|d|e|f|g|h|i|j|k|l|m|n|ñ|o|p|q|r|s|t|u|v|w|x|y|z
            A|B||C|D|E|F|G|H|I|J|K|L|M|N|Ñ|O|P|Q|R|S|T|U|V|W|X|Y|Z
@@ -21,22 +21,29 @@
 
 <operador_comparacion>::= ===|equals |<operadores_desigualdad>
 
-<asignacion>::=  <identificador><operador_asignacio><constante>
+<asignacion>::=  <identificador><operador_asignacio><termino>
 
-<constante>::=	<numero>|<cadena>|<identificador>
+<termino>::=	<numero>|<cadena>|<identificador>
 
-<propocion_primitiva>::= <constante><operador_comparacion><constante>
+<expresion_simle>::= <termino><operador_aritmetico><termino>
+                    |<asignacion>
+                    |<condicion>
+
+<propocion_primitiva>::= <termino><operador_comparacion><termino>
 
 <condicion>::= <propocicion_primitiva>
 			  |<propocicion_primitiva><operadores_logicos><condicion>
 
-<bloque_instruccion>::= <asignacion>
-						|<seleccion_simple>
-						|<seleccion_doble>
-						|<seleccion_multiple>
-						|<do_while>
-						|<while>
-						|<for>
+<bloque_instruccion>::= <instruccion>|<instruccion><bloque_instruccion>
+
+<instruccion>::= <expresion_simple>
+				|<seleccion_simple>
+				|<seleccion_doble>
+				|<seleccion_multiple>
+				|<do_while>
+				|<while>
+				|<for>
+                |<funcion>
 
 <seleccion_simple>::= if(<condicion>) {<bloque_instruccion>}
 
@@ -50,7 +57,7 @@
 
 <definicion_funcion>::= def <identificador>
 
-<lista_parametros>::= <constante>|<constate>,<cosntante>
+<lista_parametros>::= <termino>|<constate>,<cosntante>
 
 <funcion>::= <definicion_funcion>(<lista_parametros>){<bloque_instruccion>}	
 		   
