@@ -1,9 +1,9 @@
 /**************************************************************
  * Integrantes
- *  Fredy Enrique Amador Quiroz
- *  Christian Alexander Ochoa
- *  David Alexander Cardenas
- *  Ariel Garcia
+ *  FREDY ENRIQUE AMADOR QUIROZ....................20151003958
+ *  ARIEL ISAI TURCIOS GARCIA......................20131006640
+ *  CRISTIAN ALEXANDER MARTINEZ OCHOA..............20131015700
+ *  DAVID ALEXANDER CARDENAS ALMENDARES............20121003387
  **************************************************************/
 
 #include<stdio.h>
@@ -11,7 +11,7 @@
 #include<stdbool.h>
 #include"Lista.h"
 /*======================================================*
- *=        Se deifnen las salidas del Automata         =*
+ *=        Se definen las salidas del Automata         =*
  *======================================================*/
 #define IDENTIFICADOR 2
 #define CADENA 1
@@ -21,7 +21,7 @@
 
 
 /*======================================================*
- *=        Se deifnen los estados del Automata         =*
+ *=        Se definen los estados del Automata         =*
  *======================================================*/
 enum estado {ESTADO_NINGUNO,ESTADO_CADENA,ESTADO_NUMERO,ESTADO_IDENTIFICADOR};
 typedef enum estado Estado;
@@ -38,12 +38,12 @@ typedef struct elementoToken
 void automata(FILE *fichero,Lista *lista_tokens);
 bool comprobarCaracter(char caracter);
 bool comprobarNumero(char numero);
-char* obtenerAtributo(Lista *lista); 
+char* obtenerAtributo(Lista *lista);
 void  presentacion(Lista *lista_tokens);
 char* tipoToken(Token *token);
 
 int main(int argc, const char* argv[]){
-    
+
     FILE *fichero;
     fichero = fopen("programa.robodoc", "r");
     Lista *lista_tokens = (Lista *)malloc(sizeof(Lista));
@@ -59,9 +59,9 @@ void automata(FILE *fichero,Lista *lista_tokens){
     unsigned contador_lineas = 1;
     Lista *buffer = (Lista*)malloc(sizeof(Lista));
     inicializarLista(buffer,INT);
-    
+
     while ((caracter = fgetc(fichero))!=EOF)
-    {   
+    {
         if(caracter=='\n')
             contador_lineas++;
         switch (estado_actual)
@@ -103,9 +103,9 @@ void automata(FILE *fichero,Lista *lista_tokens){
                         estado_actual=ESTADO_IDENTIFICADOR;
                     }
                 }
-                
+
             }
-            
+
             break;
 
         case ESTADO_IDENTIFICADOR:
@@ -129,8 +129,8 @@ void automata(FILE *fichero,Lista *lista_tokens){
                         estado_actual = ESTADO_IDENTIFICADOR;
                     }
                 }
-                
-            }        
+
+            }
             break;
         case ESTADO_NUMERO:
             if((caracter == ' ') || (caracter == '\t') || (caracter == '\n') ){
@@ -153,9 +153,9 @@ void automata(FILE *fichero,Lista *lista_tokens){
                         estado_actual = ESTADO_NUMERO;
                     }
                 }
-                
-            }            
-            break;                
+
+            }
+            break;
         default:
             printf("ERROR\n");
             break;
@@ -172,8 +172,8 @@ bool comprobarCaracter(char caracter){
         if(((int)caracter >=97) && ((int)caracter <=122))
             return true;
         else
-            return false;        
-    }   
+            return false;
+    }
 }
 
 bool comprobarNumero(char numero){
@@ -181,20 +181,20 @@ bool comprobarNumero(char numero){
         return true;
     else
         return false;
-        
+
 }
 
 char* obtenerAtributo(Lista *lista){
     char *atributo = (char *)calloc(lista->tamano+1,sizeof(char));
     for(unsigned indice = 0; indice<=(lista->tamano); indice++){
         if(indice != lista->tamano){
-            char caracter = (char)(obtenerPorIndice(lista,indice)).Int;        
+            char caracter = (char)(obtenerPorIndice(lista,indice)).Int;
             *(atributo+indice)= caracter;
         }else
         {
             *(atributo+indice)='\0';
         }
-        
+
     }
     return atributo;
 }
@@ -226,5 +226,5 @@ char* tipoToken(Token *token){
   default:
       break;
   }
-        
+
 }
