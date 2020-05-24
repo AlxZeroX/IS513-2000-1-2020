@@ -1,0 +1,17 @@
+ENCENDER
+
+def Moverx(numeroX){
+    if (numeroX > 0)
+
+}
+
+def movery(numeroY)
+    if (numeroY > 0)
+def moverz(numeroZ)
+    if (numeroZ > 0)
+
+def girar(revoluciones)
+    while (1){
+        contador = contador + 1
+    }
+APAGAR
